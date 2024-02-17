@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link
+      rel="canonical"
+      href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1"
+    />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/cc433e9725.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Carousel -->
+    <script
+      async
+      custom-element="amp-base-carousel"
+      src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"
+    ></script>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+
+    <style amp-custom>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+        font-family: dotted;
+        src: url(./fonts/dotted.ttf);
+      }
+      body {
+        background-color: #1cc5e1;
+        font-family: "Franklin Gothic Small", "Arial Narrow", Arial, sans-serif;
+      }
+      nav {
+        background-color: #00011c;
+        height: auto;
+        width: 100%;
+      }
+      #navbar {
+        max-width: 85rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      @media (max-width: 1074px) {
+        #navbar {
+          display: block;
+          text-align: start;
+        }
+        #live {
+          text-align: center;
+          margin: 1.5rem 0 3rem 0;
+        }
+      }
+      #navbar ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+      #navbar ul li {
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #navbar ul li p {
+        color: #fadb61;
+        font-size: 1.01rem;
+        font-weight: bolder;
+        margin-top: 8px;
+      }
+      #live {
+        display: flex;
+        margin: 1.5rem 0 3rem 0;
+      }
+      #liveChat {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #1cc5e1;
+        padding: 0.6rem 0.6rem;
+        margin-right: 5px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1.07rem;
+        border-radius: 5px;
+        border: #1cc5e1 solid 1px;
+      }
+      #liveChat a {
+        color: #fadb61;
+        text-decoration: none;
+      }
+      #liveChat i {
+        color: white;
+      }
+      #live input {
+        background-color: #b2cfd4;
+        padding-left: 0.5rem;
+        font-size: medium;
+        border-radius: 5px;
+        border: #1cc5e1 solid 1px;
+      }
+      #live .userName {
+        margin-right: 5px;
+      }
+      #live .password {
+        margin-right: 5px;
+      }
+      #live .login,
+      #live .register {
+        margin-right: 5px;
+        border-radius: 5px;
+        border: #1cc5e1 solid 1px;
+        padding: 0rem 2rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #04f21f;
+      }
+      #live .login {
+        background-color: #1084a9;
+      }
+      #live .register {
+        background-color: #1e17e0;
+      }
+      #announcement1 {
+        border-bottom: #1cc5e1 1px solid;
+        border-top: #1cc5e1 1px solid;
+        z-index: 10;
+      }
+      #announcement2 {
+        max-width: 85rem;
+        margin: 0 auto;
+        display: flex;
+      }
+      #announcement2 #title {
+        background-color: #1e17e0;
+        color: #fadb61;
+        font-weight: bolder;
+        padding: 0.3rem 5px;
+      }
+      #announcement2 marquee {
+        color: #fadb61;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="navbar">
+        <amp-img
+          id="logo"
+          src="https://apexmaxwin.cloud/uploads/l1695295228.png"
+          width="300"
+          height="90"
+        ></amp-img>
+        <div>
+          <div id="live">
+            <span id="liveChat">
+              <a href="/">LiveChat</a>
+              <i class="fa-solid fa-comment-dots"></i>
+            </span>
+            <input class="userName" placeholder="Username" type="text" />
+            <input class="password" placeholder="Password" type="password" />
+            <button class="login">Login</button>
+            <button class="register">Register</button>
+          </div>
+          <ul>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-home-active.svg"
+              >
+              </amp-img>
+              <p>HOME</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-sports.svg"
+              >
+              </amp-img>
+              <p>SPORTS</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-casino.svg"
+              >
+              </amp-img>
+              <p>CASINO</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-slot.svg"
+              >
+              </amp-img>
+              <p>SLOTS</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-fish.svg"
+              >
+              </amp-img>
+              <p>FISHING</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-cockft.svg"
+              >
+              </amp-img>
+              <p>COCKFT</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-promo.svg"
+              >
+              </amp-img>
+              <p>PROMO</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-referral.svg"
+              >
+              </amp-img>
+              <p>REFERRAL</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/contact-us.svg"
+              >
+              </amp-img>
+              <p>CONTACT</p>
+            </li>
+            <li>
+              <amp-img
+                width="32"
+                height="28"
+                src="https://a5en.b-cdn.net/img/desktop/Menu/dark-gold/icon-download.svg"
+              >
+              </amp-img>
+              <p>UNDUH</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="announcement1">
+        <div id="announcement2">
+          <div id="title">Announcement:</div>
+          <marquee direction="left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+            mollitia officiis non doloribus praesentium. Consequatur sed
+            quisquam autem laboriosam, distinctio et ad illo maxime officiis
+            quae ullam ut, quaerat nobis.
+          </marquee>
+        </div>
+      </div>
+    </nav>
+    <div id="carousel">
+      <amp-base-carousel
+        loop="true"
+        width="1000"
+        height="265.5"
+        layout="responsive"
+        auto-advance="true"
+        auto-advance-count="1"
+        auto-advance-interval="4000"
+      >
+        <amp-img
+          src="https://a5en.b-cdn.net/banner/spadegaming.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696001915.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696002054.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://a5en.b-cdn.net/banner/microgaming.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696001915.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696002001.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696002099.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://apexmaxwin.cloud/uploads/banner/1696002028.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://a5en.b-cdn.net/banner/pragmatic_1.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://a5en.b-cdn.net/banner/pragmatic_1.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+        <amp-img
+          src="https://a5en.b-cdn.net/banner/pgsoft.webp"
+          width="1000"
+          height="265.5"
+          layout="responsive"
+        ></amp-img>
+      </amp-base-carousel>
+    </div>
+    <div></div>
+  </body>
+</html>
